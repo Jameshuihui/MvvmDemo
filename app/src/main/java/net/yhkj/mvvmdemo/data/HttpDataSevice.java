@@ -15,7 +15,6 @@ import me.goldze.mvvmhabit.http.BaseResponse;
  * 描述：
  */
 public interface HttpDataSevice {
-    //模拟登录
     Observable<BaseResponse<TokenResponse>> getToken();
 
     Observable<BaseResponse> login(Map requestBody);

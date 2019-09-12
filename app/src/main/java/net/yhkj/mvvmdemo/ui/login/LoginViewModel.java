@@ -31,7 +31,7 @@ import me.goldze.mvvmhabit.utils.ToastUtils;
  */
 public class LoginViewModel extends BaseViewModel<LoginRepository> {
     //用户名的绑定
-    public ObservableField<String> userName = new ObservableField<String>("15585095866");
+    public ObservableField<String> userName = new ObservableField<String>("");
     //密码的绑定
     public ObservableField<String> password = new ObservableField<String>("");
 
