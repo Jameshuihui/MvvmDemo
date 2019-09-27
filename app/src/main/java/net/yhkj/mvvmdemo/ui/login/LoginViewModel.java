@@ -7,8 +7,13 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
 
+import net.yhkj.mvvmdemo.ui.main.MainActivity;
 import net.yhkj.mvvmdemo.data.respository.LoginRepository;
+import net.yhkj.mvvmdemo.entity.SpinnerItemData;
 import net.yhkj.mvvmdemo.entity.response.TokenResponse;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Action;
@@ -16,6 +21,8 @@ import io.reactivex.functions.Consumer;
 import me.goldze.mvvmhabit.base.BaseViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
+import me.goldze.mvvmhabit.binding.command.BindingConsumer;
+import me.goldze.mvvmhabit.binding.viewadapter.spinner.IKeyAndValue;
 import me.goldze.mvvmhabit.http.BaseResponse;
 import me.goldze.mvvmhabit.utils.KLog;
 import me.goldze.mvvmhabit.utils.RegexUtils;
@@ -36,6 +43,14 @@ public class LoginViewModel extends BaseViewModel<LoginRepository> {
     public ObservableField<String> password = new ObservableField<String>("");
 
 
+    //类别选择的监听
+    public BindingCommand<IKeyAndValue> onTypeSelectorCommand = new BindingCommand<>(new BindingConsumer<IKeyAndValue>() {
+        @Override
+        public void call(IKeyAndValue iKeyAndValue) {
+            ToastUtils.showShort(iKeyAndValue.getKey());
+        }
+    });
+
     public LoginViewModel(@NonNull Application application) {
         super(application);
     }
@@ -51,6 +66,21 @@ public class LoginViewModel extends BaseViewModel<LoginRepository> {
         }
     });
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        typeItemDatas = new ArrayList<>();
+        typeItemDatas.add(new SpinnerItemData("厂家直进", "1"));
+        typeItemDatas.add(new SpinnerItemData("经销商", "2"));
+    }
+
+    protected void isLogin() {
+        if (model.getLoignStatus()) {
+            startActivity(MainActivity.class);
+            finish();
+        }
+    }
+
     private void login() {
         if (TextUtils.isEmpty(userName.get())) {
             ToastUtils.showShort("请输入您的手机号码");
@@ -64,7 +94,8 @@ public class LoginViewModel extends BaseViewModel<LoginRepository> {
             ToastUtils.showShort("请输入密码");
             return;
         }
-        getToken();
+        model.saveLoginStatus(true);
+        startActivity(MainActivity.class);
     }
 
     @SuppressLint("CheckResult")
@@ -87,7 +118,7 @@ public class LoginViewModel extends BaseViewModel<LoginRepository> {
         }, new Consumer<Throwable>() {
             @Override
             public void accept(Throwable throwable) throws Exception {
-                KLog.e("出问题了"+throwable.getMessage());
+                KLog.e("出问题了" + throwable.getMessage());
             }
         }, new Action() {
             @Override
@@ -101,4 +132,6 @@ public class LoginViewModel extends BaseViewModel<LoginRepository> {
     private void loginReq() {
 
     }
+
+    public List<IKeyAndValue> typeItemDatas = new ArrayList<>();
 }

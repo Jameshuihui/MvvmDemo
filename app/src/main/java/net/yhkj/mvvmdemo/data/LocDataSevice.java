@@ -8,7 +8,13 @@ package net.yhkj.mvvmdemo.data;
  * 描述：
  */
 public interface LocDataSevice {
+    /**
+     * 保存登录状态
+     */
+    void saveLoginStatus(boolean isLogin);
 
-
-
+    /**
+     * 获取登录状态
+     */
+    boolean getLoignStatus();
 }

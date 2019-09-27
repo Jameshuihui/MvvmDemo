@@ -4,6 +4,7 @@
     xmlns:binding="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="net.yhkj.mvvmdemo.ui.login.LoginViewModel" />
@@ -25,8 +26,8 @@
             android:hint="请输入您的手机号"
             android:imeOptions="actionNext"
             android:maxLength="11"
-            android:text="@={viewModel.userName}"
             android:maxLines="1"
+            android:text="@={viewModel.userName}"
             android:textColor="#808080"
             android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -60,11 +61,12 @@
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:text="登录"
-            binding:onClickCommand="@{viewModel.loginClickCommand}"
             android:textColor="#fff"
             android:textSize="18sp"
             app:layout_constraintLeft_toLeftOf="@id/et_phone"
             app:layout_constraintRight_toRightOf="@id/et_phone"
-            app:layout_constraintTop_toBottomOf="@id/et_psw" />
+            app:layout_constraintTop_toBottomOf="@id/et_psw"
+            binding:onClickCommand="@{viewModel.loginClickCommand}" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

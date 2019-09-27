@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="MainItemViewModel" />
+
+        <import type="net.yhkj.mvvmdemo.ui.main.MainItemViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        binding:onClickCommand="@{viewModel.itemClick}"
+        android:background="@drawable/shape_main"
+        android:gravity="center"
+        android:padding="50dp"
+        android:shadowColor="@color/white"
+        android:text="@{viewModel.obMainData.title}"
+        android:textColor="@color/white" />
+</layout>

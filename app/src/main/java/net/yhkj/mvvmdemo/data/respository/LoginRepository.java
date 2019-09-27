@@ -56,4 +56,13 @@ public class LoginRepository extends BaseModel implements LocDataSevice, HttpDat
     }
 
 
+    @Override
+    public void saveLoginStatus(boolean isLogin) {
+        mLocDataSevice.saveLoginStatus(isLogin);
+    }
+
+    @Override
+    public boolean getLoignStatus() {
+        return mLocDataSevice.getLoignStatus();
+    }
 }

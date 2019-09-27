@@ -1,6 +1,9 @@
 package net.yhkj.mvvmdemo.data.local;
 
 import net.yhkj.mvvmdemo.data.LocDataSevice;
+import net.yhkj.mvvmdemo.utils.SPKey;
+
+import me.goldze.mvvmhabit.utils.SPUtils;
 
 /**
  * 文件名：net.yhkj.mvvmdemo.data.local.LocalDataSourceImpl
@@ -31,5 +34,15 @@ public class LocalDataSourceImpl implements LocDataSevice {
         //数据库Helper构建
     }
 
+
+    @Override
+    public void saveLoginStatus(boolean isLogin) {
+        SPUtils.getInstance().put(SPKey.LOGIN_STATUS, isLogin);
+    }
+
+    @Override
+    public boolean getLoignStatus() {
+        return SPUtils.getInstance().getBoolean(SPKey.LOGIN_STATUS, false);
+    }
 
 }

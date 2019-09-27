@@ -1,13 +1,11 @@
 package net.yhkj.mvvmdemo.base;
 
-import net.yhkj.mvvmdemo.BuildConfig;
-import net.yhkj.mvvmdemo.MainActivity;
+import net.yhkj.mvvmdemo.ui.main.MainActivity;
 import net.yhkj.mvvmdemo.R;
 
 import me.goldze.mvvmhabit.base.BaseApplication;
 import me.goldze.mvvmhabit.crash.CaocConfig;
 import me.goldze.mvvmhabit.utils.KLog;
-import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.goldze.mvvmhabit.utils.Utils;
 
 /**
