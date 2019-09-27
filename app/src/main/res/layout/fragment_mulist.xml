@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+
+        <import type="net.yhkj.mvvmdemo.ui.mulist.MuListViewModel" />
+
+        <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />
+
+        <variable
+            name="viewModel"
+            type="MuListViewModel" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            binding:adapter="@{adapter}"
+            binding:itemBinding="@{viewModel.itemBinding}"
+            binding:items="@{viewModel.observableList}"
+            binding:layoutManager="@{LayoutManagers.linear()}"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</layout>

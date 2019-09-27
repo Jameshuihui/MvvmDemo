@@ -11,6 +11,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import net.yhkj.mvvmdemo.BR;
 import net.yhkj.mvvmdemo.R;
 import net.yhkj.mvvmdemo.databinding.ActivityMainBinding;
+import net.yhkj.mvvmdemo.ui.mulist.MuListFragment;
 import net.yhkj.mvvmdemo.ui.sweep_code.SweepCodeActivity;
 
 import io.reactivex.functions.Consumer;
@@ -63,6 +64,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                     case 1:
                         //扫码
                         startActivity(SweepCodeActivity.class);
+                        break;
+                    case 2:
+                        //多布局
+                        startContainerActivity(MuListFragment.class.getCanonicalName());
                         break;
                 }
             }

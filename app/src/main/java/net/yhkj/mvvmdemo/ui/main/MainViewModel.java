@@ -45,6 +45,7 @@ public class MainViewModel extends BaseViewModel<LoginRepository> {
 
     public void initData() {
         observableList.add(new MainItemViewModel(this, new MainBean("扫码入库", 1)));
+        observableList.add(new MainItemViewModel(this, new MainBean("多布局", 2)));
         observableList.add(new MainItemViewModel(this, new MainBean("待定", 0)));
     }
 

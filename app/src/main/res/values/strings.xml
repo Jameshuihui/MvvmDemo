@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MvvmDemo</string>
+    <string name="text_content">你所浪费的今天，是昨天死去之人到不了的明天；你所厌恶的现在，是未来的你回不去的曾经。</string>
+    <string name="test_text">在超凡入圣与无恶不做之间还有第三选择，这是所有成熟的成年人多会选择的一条路。两害相权取其轻，尽力将善意放在面前。</string>
 </resources>
