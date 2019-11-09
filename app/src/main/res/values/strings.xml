@@ -2,4 +2,15 @@
     <string name="app_name">MvvmDemo</string>
     <string name="text_content">你所浪费的今天，是昨天死去之人到不了的明天；你所厌恶的现在，是未来的你回不去的曾经。</string>
     <string name="test_text">在超凡入圣与无恶不做之间还有第三选择，这是所有成熟的成年人多会选择的一条路。两害相权取其轻，尽力将善意放在面前。</string>
+    <string name="content">不久前我遇见一个人，送给我一坛酒，她说叫醉生梦死，喝了以后，可以让你忘掉做过的任何事。我很奇怪，为什么会有这样的酒。她说，人最大的烦恼就是记性太好。如果什么都可以忘了，以后的每一天将会是一个新的开始，那你说多开心。</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_toggle">toggle</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detail">图文详情</string>
+    <string name="comment">评论列表</string>
+
 </resources>

@@ -1,6 +1,7 @@
 package net.yhkj.mvvmdemo.ui.login;
 
 import android.os.Bundle;
+import android.view.MotionEvent;
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -34,6 +35,11 @@ public class LoginActivity extends BaseActivity <ActivityLoginBinding,LoginViewM
     public void initData() {
         super.initData();
         viewModel.isLogin();
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
     }
 
     @Override

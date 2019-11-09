@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="MulitpleStatusViewModel" />
+
+        <import type="net.yhkj.mvvmdemo.ui.multiple_status.MulitpleStatusViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                binding:onClickCommand="@{viewModel.loadingCommand}"
+                android:text="加载中"
+                android:textColor="@color/white" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                binding:onClickCommand="@{viewModel.errortCommand}"
+                android:text="错误"
+                android:textColor="@color/white" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                binding:onClickCommand="@{viewModel.netCommand}"
+                android:text="网络"
+                android:textColor="@color/white" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                binding:onClickCommand="@{viewModel.contentCommand}"
+                android:text="内容"
+                android:textColor="@color/white" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                binding:onClickCommand="@{viewModel.emptyCommand}"
+                android:text="空视图"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <net.yhkj.mvvmdemo.view.MultipleStatusView
+            android:id="@+id/multiple_status_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:emptyView="@layout/include_empty"
+            app:errorView="@layout/include_error"
+            app:loadingView="@layout/include_loading"
+            app:noNetworkView="@layout/include_network">
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="哈哈哈哈哈"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"/>
+        </net.yhkj.mvvmdemo.view.MultipleStatusView>
+    </LinearLayout>
+</layout>

@@ -5,13 +5,25 @@ import androidx.lifecycle.Observer;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.view.MotionEvent;
 
+import com.luck.picture.lib.PictureSelector;
+import com.luck.picture.lib.config.PictureConfig;
+import com.luck.picture.lib.config.PictureMimeType;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.trello.rxlifecycle2.components.RxFragment;
 
 import net.yhkj.mvvmdemo.BR;
 import net.yhkj.mvvmdemo.R;
 import net.yhkj.mvvmdemo.databinding.ActivityMainBinding;
+import net.yhkj.mvvmdemo.minterface.OnParentTouchEvent;
+import net.yhkj.mvvmdemo.ui.addcart.AddCartFragment;
+import net.yhkj.mvvmdemo.ui.double_rv.DoubeRvFragment;
+import net.yhkj.mvvmdemo.ui.goods_detials.GoodsDetialsFragment;
+import net.yhkj.mvvmdemo.ui.money.MoneyFragment;
 import net.yhkj.mvvmdemo.ui.mulist.MuListFragment;
+import net.yhkj.mvvmdemo.ui.multiple_status.MultipleStatusFragment;
+import net.yhkj.mvvmdemo.ui.rxbus.RxBusFragment;
 import net.yhkj.mvvmdemo.ui.sweep_code.SweepCodeActivity;
 
 import io.reactivex.functions.Consumer;
@@ -21,6 +33,8 @@ import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
+    private OnParentTouchEvent onParentTouchEvent;
+
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_main;
@@ -34,6 +48,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     @Override
     public void initData() {
         super.initData();
+        onParentTouchEvent = new OnParentTouchEvent() {
+            @Override
+            public boolean dispatchTouchEvent(MotionEvent ev) {
+                return false;
+            }
+        };
         binding.setAdapter(new BindingRecyclerViewAdapter());
         viewModel.initData();
         getPermission();
@@ -46,12 +66,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                     @Override
                     public void accept(Boolean aBoolean) throws Exception {
                         if (aBoolean) {
-                            ToastUtils.showShort("相机权限已经打开，直接跳入相机");
+//                            ToastUtils.showShort("相机权限已经打开，直接跳入相机");
                         } else {
-                            ToastUtils.showShort("权限被拒绝");
+//                            ToastUtils.showShort("权限被拒绝");
                         }
                     }
                 });
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        onParentTouchEvent.dispatchTouchEvent(ev);
+        return super.dispatchTouchEvent(ev);
     }
 
     @Override
@@ -69,8 +95,35 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                         //多布局
                         startContainerActivity(MuListFragment.class.getCanonicalName());
                         break;
+                    case 3:
+                        pickPhoto();
+                        break;
+                    case 4:
+                        startContainerActivity(DoubeRvFragment.class.getCanonicalName());
+                        break;
+                    case 5:
+                        startContainerActivity(GoodsDetialsFragment.class.getCanonicalName());
+                        break;
+                    case 6:
+                        startContainerActivity(MultipleStatusFragment.class.getCanonicalName());
+                        break;
+                    case 7:
+                        startContainerActivity(MoneyFragment.class.getCanonicalName());
+                        break;
+                    case 8:
+                        startContainerActivity(RxBusFragment.class.getCanonicalName());
+                        break;
+                    case 9:
+                        startContainerActivity(AddCartFragment.class.getCanonicalName());
+                        break;
                 }
             }
         });
+    }
+
+    private void pickPhoto() {
+        PictureSelector.create(MainActivity.this)
+                .openGallery(PictureMimeType.ofImage())
+                .forResult(PictureConfig.CHOOSE_REQUEST);
     }
 }

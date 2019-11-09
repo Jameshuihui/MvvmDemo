@@ -6,4 +6,6 @@
 
     <color name="app_color">#263859</color>
     <color name="app_deep_color">#17223b</color>
+
+    <color name="select_color">#e0e0e0</color>
 </resources>
