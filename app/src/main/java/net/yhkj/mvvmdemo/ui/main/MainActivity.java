@@ -19,7 +19,9 @@ import net.yhkj.mvvmdemo.databinding.ActivityMainBinding;
 import net.yhkj.mvvmdemo.minterface.OnParentTouchEvent;
 import net.yhkj.mvvmdemo.ui.addcart.AddCartFragment;
 import net.yhkj.mvvmdemo.ui.double_rv.DoubeRvFragment;
+import net.yhkj.mvvmdemo.ui.gallery.GalleryFragment;
 import net.yhkj.mvvmdemo.ui.goods_detials.GoodsDetialsFragment;
+import net.yhkj.mvvmdemo.ui.indicator.IndicatorFragment;
 import net.yhkj.mvvmdemo.ui.money.MoneyFragment;
 import net.yhkj.mvvmdemo.ui.mulist.MuListFragment;
 import net.yhkj.mvvmdemo.ui.multiple_status.MultipleStatusFragment;
@@ -115,6 +117,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                         break;
                     case 9:
                         startContainerActivity(AddCartFragment.class.getCanonicalName());
+                        break;
+                    case 10:
+                        startContainerActivity(GalleryFragment.class.getCanonicalName());
+                        break;
+                    case 11:
+                        startContainerActivity(IndicatorFragment.class.getCanonicalName());
                         break;
                 }
             }

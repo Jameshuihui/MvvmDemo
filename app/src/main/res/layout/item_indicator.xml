@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="IndicatorItemViewModel" />
+
+
+        <import type="net.yhkj.mvvmdemo.ui.indicator.IndicatorItemViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/line_color"
+            android:visibility="@{viewModel.obShowHeadLine?View.VISIBLE:View.INVISIBLE}" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/shape_round"
+                android:gravity="center"
+                android:text="@{viewModel.itemDatas.step}"
+                android:textColor="@color/white"
+                android:visibility="@{viewModel.obIsComplete?View.GONE:View.VISIBLE}" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_complete"
+                android:visibility="@{viewModel.obIsComplete?View.VISIBLE:View.GONE}" />
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/line_color"
+            android:visibility="@{viewModel.obShowFootLine?View.VISIBLE:View.INVISIBLE}" />
+    </LinearLayout>
+</layout>

@@ -64,6 +64,8 @@ public class MainViewModel extends BaseViewModel<LoginRepository> {
         observableList.add(new MainItemViewModel(this, new MainBean("价格", 7)));
         observableList.add(new MainItemViewModel(this, new MainBean("RxBus", 8)));
         observableList.add(new MainItemViewModel(this, new MainBean("购物车", 9)));
+        observableList.add(new MainItemViewModel(this, new MainBean("横向图片", 10)));
+        observableList.add(new MainItemViewModel(this, new MainBean("步骤指示器", 11)));
         observableList.add(new MainItemViewModel(this, new MainBean("待定", 0)));
     }
 
