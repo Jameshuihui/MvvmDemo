@@ -14,6 +14,11 @@
         <variable
             name="adapterRight"
             type="BindingRecyclerViewAdapter" />
+
+        <variable
+            name="linearLayoutManager"
+            type="LineManagers" />
+
         <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
 
         <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
@@ -51,14 +56,14 @@
                 binding:items="@{viewModel.observableLeftList}"
                 binding:layoutManager="@{LayoutManagers.linear()}"
                 android:layout_height="match_parent"
-                android:layout_weight="3" />
+                android:layout_weight="2" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="0dp"
                 binding:adapter="@{adapterRight}"
                 binding:itemBinding="@{viewModel.itemRihtBinding}"
                 binding:items="@{viewModel.observableRihtList}"
-                binding:layoutManager="@{LayoutManagers.linear()}"
+                binding:layoutManager="@{LayoutManagers.grid(2)}"
                 android:id="@+id/recyclerView2"
                 android:layout_height="match_parent"
                 android:layout_weight="8" />

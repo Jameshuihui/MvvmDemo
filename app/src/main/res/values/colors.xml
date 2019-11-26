@@ -4,8 +4,8 @@
     <color name="colorPrimaryDark">@color/app_deep_color</color>
     <color name="colorAccent">@color/app_color</color>
 
-    <color name="app_color">#263859</color>
-    <color name="app_deep_color">#17223b</color>
+    <color name="app_color">#1ee3cf</color>
+    <color name="app_deep_color">#0d3f67</color>
 
     <color name="select_color">#e0e0e0</color>
 

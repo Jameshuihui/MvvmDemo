@@ -18,7 +18,10 @@ import net.yhkj.mvvmdemo.R;
 import net.yhkj.mvvmdemo.databinding.ActivityMainBinding;
 import net.yhkj.mvvmdemo.minterface.OnParentTouchEvent;
 import net.yhkj.mvvmdemo.ui.addcart.AddCartFragment;
+import net.yhkj.mvvmdemo.ui.address_picker.AddressPickerFragment;
+import net.yhkj.mvvmdemo.ui.bottomsheet.BottomSheetFragment;
 import net.yhkj.mvvmdemo.ui.double_rv.DoubeRvFragment;
+import net.yhkj.mvvmdemo.ui.drawiamge.DrawImageFragment;
 import net.yhkj.mvvmdemo.ui.gallery.GalleryFragment;
 import net.yhkj.mvvmdemo.ui.goods_detials.GoodsDetialsFragment;
 import net.yhkj.mvvmdemo.ui.indicator.IndicatorFragment;
@@ -124,6 +127,16 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                     case 11:
                         startContainerActivity(IndicatorFragment.class.getCanonicalName());
                         break;
+                    case 12:
+                        startContainerActivity(AddressPickerFragment.class.getCanonicalName());
+                        break;
+                    case 13:
+                        startContainerActivity(DrawImageFragment.class.getCanonicalName());
+                        break;
+                    case 14:
+                        startContainerActivity(BottomSheetFragment.class.getCanonicalName());
+                        break;
+
                 }
             }
         });

@@ -6,7 +6,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import net.yhkj.mvvmdemo.BR;
@@ -15,6 +17,7 @@ import net.yhkj.mvvmdemo.databinding.FragmentDoubleRvBinding;
 import net.yhkj.mvvmdemo.minterface.OnParentTouchEvent;
 
 import me.goldze.mvvmhabit.base.BaseFragment;
+import me.tatarka.bindingcollectionadapter2.LayoutManagers;
 
 /**
  * 文件名：net.yhkj.mvvmdemo.ui.double_rv.DoubeRvFragment
@@ -43,6 +46,7 @@ public class DoubeRvFragment extends BaseFragment<FragmentDoubleRvBinding,Double
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 if (recyclerView.getScrollState() != RecyclerView.SCROLL_STATE_IDLE) {
                     binding.recyclerView2.scrollBy(dx, dy);
+
                 }
             }
         });
@@ -55,6 +59,43 @@ public class DoubeRvFragment extends BaseFragment<FragmentDoubleRvBinding,Double
                 }
             }
         });
+        binding.recyclerView1.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
+    }
+
+
+    private void moveToPosition(int n) {
+        //先从RecyclerView的LayoutManager中获取第一项和最后一项的Position
+        LinearLayoutManager linearLayoutManager = (LinearLayoutManager) binding.recyclerView1.getLayoutManager();
+        int firstItem =linearLayoutManager.findFirstVisibleItemPosition();
+        int lastItem = linearLayoutManager.findLastVisibleItemPosition();
+        //然后区分情况
+        if (n <= firstItem) {
+            //当要置顶的项在当前显示的第一个项的前面时
+            binding.recyclerView2.scrollToPosition(n);
+        } else if (n <= lastItem) {
+            //当要置顶的项已经在屏幕上显示时
+            int top =  binding.recyclerView2.getChildAt(n - firstItem).getTop();
+            binding.recyclerView2.scrollBy(0, top);
+        } else {
+            //当要置顶的项在当前显示的最后一项的后面时
+            binding.recyclerView2.scrollToPosition(n);
+            //这里这个变量是用在RecyclerView滚动监听里面的
+        }
     }
 
 

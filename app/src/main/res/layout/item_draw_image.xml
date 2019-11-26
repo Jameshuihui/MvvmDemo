@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="DrawImageItemView" />
+
+        <import type="net.yhkj.mvvmdemo.ui.drawiamge.DrawImageItemView" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            binding:onDraw="@{viewModel.onDrawCommand}"
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_launcher" />
+    </LinearLayout>
+</layout>

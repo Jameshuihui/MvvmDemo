@@ -56,6 +56,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="13dp"
                 android:background="#f4f4f4"
+                android:maxLines="3"
+                android:ellipsize="end"
                 android:text="@string/content"
                 android:padding="5dp"
                 app:layout_constraintLeft_toLeftOf="parent"
