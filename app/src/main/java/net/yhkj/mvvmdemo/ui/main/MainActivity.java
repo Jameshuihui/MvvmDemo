@@ -29,6 +29,7 @@ import net.yhkj.mvvmdemo.ui.money.MoneyFragment;
 import net.yhkj.mvvmdemo.ui.mulist.MuListFragment;
 import net.yhkj.mvvmdemo.ui.multiple_status.MultipleStatusFragment;
 import net.yhkj.mvvmdemo.ui.rxbus.RxBusFragment;
+import net.yhkj.mvvmdemo.ui.suction.SuctionTopFragment;
 import net.yhkj.mvvmdemo.ui.sweep_code.SweepCodeActivity;
 
 import io.reactivex.functions.Consumer;
@@ -135,6 +136,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                         break;
                     case 14:
                         startContainerActivity(BottomSheetFragment.class.getCanonicalName());
+                        break;
+                    case 15:
+                        startContainerActivity(SuctionTopFragment.class.getCanonicalName());
                         break;
 
                 }

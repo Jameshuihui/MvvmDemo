@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="SuctionTopViewModel" />
+
+        <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />
+
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <import type="net.yhkj.mvvmdemo.ui.suction.SuctionTopViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/recyclerView"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ll_top"
+            binding:adapter="@{adapter}"
+            binding:itemBinding="@{viewModel.itemBinding}"
+            binding:items="@{viewModel.observableList}" />
+
+        <LinearLayout
+            android:id="@+id/ll_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E8E7E7"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp"
+            android:paddingTop="9dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="9dp">
+
+            <TextView
+                android:id="@+id/tv_time_day"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2018年2月"
+                android:textColor="#4d4d4d"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tv_sum_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="合计 -1075.51元"
+                android:textColor="#161616"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

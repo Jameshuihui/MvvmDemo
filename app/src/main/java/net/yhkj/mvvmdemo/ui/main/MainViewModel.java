@@ -69,6 +69,7 @@ public class MainViewModel extends BaseViewModel<LoginRepository> {
         observableList.add(new MainItemViewModel(this, new MainBean("地址选择", 12)));
         observableList.add(new MainItemViewModel(this, new MainBean("拖拽视图", 13)));
         observableList.add(new MainItemViewModel(this, new MainBean("BottomSheet", 14)));
+        observableList.add(new MainItemViewModel(this, new MainBean("吸顶悬浮", 15)));
         observableList.add(new MainItemViewModel(this, new MainBean("待定", 0)));
     }
 
