@@ -25,12 +25,14 @@ import net.yhkj.mvvmdemo.ui.drawiamge.DrawImageFragment;
 import net.yhkj.mvvmdemo.ui.gallery.GalleryFragment;
 import net.yhkj.mvvmdemo.ui.goods_detials.GoodsDetialsFragment;
 import net.yhkj.mvvmdemo.ui.indicator.IndicatorFragment;
+import net.yhkj.mvvmdemo.ui.link_list.LinkFragment;
 import net.yhkj.mvvmdemo.ui.money.MoneyFragment;
 import net.yhkj.mvvmdemo.ui.mulist.MuListFragment;
 import net.yhkj.mvvmdemo.ui.multiple_status.MultipleStatusFragment;
 import net.yhkj.mvvmdemo.ui.rxbus.RxBusFragment;
 import net.yhkj.mvvmdemo.ui.suction.SuctionTopFragment;
 import net.yhkj.mvvmdemo.ui.sweep_code.SweepCodeActivity;
+import net.yhkj.mvvmdemo.ui.test.TestFragment;
 
 import io.reactivex.functions.Consumer;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -139,6 +141,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                         break;
                     case 15:
                         startContainerActivity(SuctionTopFragment.class.getCanonicalName());
+                        break;
+                    case 16:
+                        startContainerActivity(LinkFragment.class.getCanonicalName());
+                        break;
+                    case 17:
+                        startContainerActivity(TestFragment.class.getCanonicalName());
                         break;
 
                 }

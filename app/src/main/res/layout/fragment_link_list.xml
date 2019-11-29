@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="LinkListViewModel" />
+
+        <variable
+            name="leftAdapter"
+            type="BindingRecyclerViewAdapter" />
+
+        <variable
+            name="rightApapter"
+            type="BindingRecyclerViewAdapter" />
+
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <import type="net.yhkj.mvvmdemo.ui.link_list.LinkListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#263859"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="双表联动"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="0dp"
+                android:id="@+id/recyclerViewLeft"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:background="@color/white"
+                binding:adapter="@{leftAdapter}"
+                binding:layoutManager="@{LayoutManagers.linear()}"
+                binding:itemBinding="@{viewModel.itemBindingLeft}"
+                binding:items="@{viewModel.observableListLeft}" />
+            <View
+                android:layout_width="1dp"
+                android:background="#f4f4f4"
+                android:layout_height="match_parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="0dp"
+                android:id="@+id/recyclerViewRight"
+                android:layout_height="match_parent"
+                android:layout_weight="8"
+                binding:adapter="@{rightApapter}"
+                binding:itemBinding="@{viewModel.itemBindingRight}"
+                binding:items="@{viewModel.observableListRight}" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

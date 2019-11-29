@@ -10,4 +10,6 @@
     <color name="select_color">#e0e0e0</color>
 
     <color name="default_text_color">#FFF</color>
+    <color name="select_bg">#ECEBEB</color>
+    <color name="white">#ffffff</color>
 </resources>

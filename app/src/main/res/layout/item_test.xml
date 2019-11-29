@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="TestItemViewModel" />
+
+        <import type="net.yhkj.mvvmdemo.ui.test.TestItemViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        binding:onClickCommand="@{viewModel.onItemClickCommand}"
+        android:layout_marginTop="1dp"
+        android:background="@{viewModel.obSelect?@color/select_bg:@color/white}"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:text="选择一下"
+        android:textColor="#161616" />
+</layout>
