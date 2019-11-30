@@ -60,4 +60,7 @@ dependencies {
     implementation 'com.github.cchao:moneyview:1.0.1'
     implementation 'com.github.lany192:PriceView:1.0.0'
     implementation 'com.github.Blincheng:AddressSelector:v1.0.4'
+    implementation 'com.github.xuexiangjys:XUpdate:1.1.1'
+    implementation 'com.github.razerdp:BasePopup:2.2.1'
+    implementation 'com.github.razerdp:BasePopup-compat-androidx:2.2.1'
 }

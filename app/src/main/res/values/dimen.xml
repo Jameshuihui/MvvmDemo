@@ -3,4 +3,73 @@
 
     <dimen name="margin_left_right_side">42dip</dimen>
     <dimen name="margin_left_right_gap">5dip</dimen>
+
+    <dimen name="font_title">18sp</dimen>
+    <dimen name="font_larger">16sp</dimen>
+    <dimen name="font_largest">20sp</dimen>
+    <dimen name="font_large">15sp</dimen>
+    <dimen name="font_normal">14sp</dimen>
+    <dimen name="font_small">13sp</dimen>
+    <dimen name="font_smaller">12sp</dimen>
+    <dimen name="font_smallest">11sp</dimen>
+    <dimen name="font_list_time">12sp</dimen>
+
+    <dimen name="spacing_bottom">100dp</dimen>
+    <dimen name="spacing_boom">60dp</dimen>
+    <dimen name="spacing_huge">40dp</dimen>
+    <dimen name="spacing_larger">34dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_biger">20dp</dimen>
+    <dimen name="spacing_big">18dp</dimen>
+    <dimen name="spacing_normal">14dp</dimen>
+    <dimen name="spacing_little">13dp</dimen>
+    <dimen name="spacing_small">12dp</dimen>
+    <dimen name="spacing_smaller">10dp</dimen>
+    <dimen name="spacing_smallest">8dp</dimen>
+    <dimen name="spacing_tiny">6dp</dimen>
+    <dimen name="spacing_tinyer">4dp</dimen>
+    <dimen name="spacing_tinyest">2dp</dimen>
+
+    <dimen name="padding_left_5dp">5dp</dimen>
+    <dimen name="padding_right_5dp">5dp</dimen>
+    <dimen name="padding_top_5dp">5dp</dimen>
+    <dimen name="padding_bottom_5dp">5dp</dimen>
+
+    <dimen name="padding_left_8dp">8dp</dimen>
+    <dimen name="padding_right_8dp">8dp</dimen>
+    <dimen name="padding_top_8dp">8dp</dimen>
+    <dimen name="padding_bottom_8dp">8dp</dimen>
+
+    <dimen name="padding_left_10dp">10dp</dimen>
+    <dimen name="padding_right_10dp">10dp</dimen>
+    <dimen name="padding_top_10dp">10dp</dimen>
+    <dimen name="padding_bottom_10dp">10dp</dimen>
+
+
+    <dimen name="padding_left_20dp">20dp</dimen>
+    <dimen name="padding_right_20dp">20dp</dimen>
+    <dimen name="padding_top_20dp">20dp</dimen>
+    <dimen name="padding_bottom_20dp">20dp</dimen>
+
+    <dimen name="padding_left_30dp">30dp</dimen>
+    <dimen name="padding_right_30dp">30dp</dimen>
+
+    <dimen name="padding_left_40dp">40dp</dimen>
+    <dimen name="padding_right_40dp">40dp</dimen>
+    <dimen name="line">1dp</dimen>
+    <dimen name="padding_edit">5dp</dimen>
+    <dimen name="card_elevation">5dp</dimen>
+    <dimen name="card_radius">5dp</dimen>
+    <dimen name="card_padding">10dp</dimen>
+    <dimen name="lineSpacing">5dp</dimen>
+
+
+    <!--    知乎-->
+    <dimen name="grid_expected_size">120dp</dimen>
+    <dimen name="font_30sp">30sp</dimen>
+    <dimen name="font_text_18sp">18sp</dimen>
+    <dimen name="font_text_20sp">20sp</dimen>
+
+
+    <dimen name="status_bar_height">25dp</dimen>
 </resources>

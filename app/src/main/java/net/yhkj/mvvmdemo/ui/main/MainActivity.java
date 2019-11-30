@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 
 import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.os.Bundle;
 import android.view.MotionEvent;
 
@@ -12,10 +14,12 @@ import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.trello.rxlifecycle2.components.RxFragment;
+import com.xuexiang.xupdate.widget.UpdateDialogFragment;
 
 import net.yhkj.mvvmdemo.BR;
 import net.yhkj.mvvmdemo.R;
 import net.yhkj.mvvmdemo.databinding.ActivityMainBinding;
+import net.yhkj.mvvmdemo.dialog.WineUpdateDialog;
 import net.yhkj.mvvmdemo.minterface.OnParentTouchEvent;
 import net.yhkj.mvvmdemo.ui.addcart.AddCartFragment;
 import net.yhkj.mvvmdemo.ui.address_picker.AddressPickerFragment;
@@ -33,6 +37,10 @@ import net.yhkj.mvvmdemo.ui.rxbus.RxBusFragment;
 import net.yhkj.mvvmdemo.ui.suction.SuctionTopFragment;
 import net.yhkj.mvvmdemo.ui.sweep_code.SweepCodeActivity;
 import net.yhkj.mvvmdemo.ui.test.TestFragment;
+import net.yhkj.mvvmdemo.ui.update.UpadteFragment;
+import net.yhkj.mvvmdemo.utils.NotificationEnum;
+import net.yhkj.mvvmdemo.utils.NotifictionUtils;
+import net.yhkj.mvvmdemo.view.MyUpdateDialog;
 
 import io.reactivex.functions.Consumer;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
@@ -64,6 +72,13 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         };
         binding.setAdapter(new BindingRecyclerViewAdapter());
         viewModel.initData();
+        MyUpdateDialog dialog=new MyUpdateDialog(this);
+        dialog.show();
+//        WineUpdateDialog dialog=new WineUpdateDialog(this);
+//        dialog.show();
+
+        NotifictionUtils.getInstance().createNotificationChannel(getBaseContext(), NotificationEnum.PROGRESS.getChannelId(),NotificationEnum.PROGRESS.getChannelName(), NotificationManager.IMPORTANCE_LOW);
+
         getPermission();
     }
 
@@ -147,6 +162,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                         break;
                     case 17:
                         startContainerActivity(TestFragment.class.getCanonicalName());
+                        break;
+                    case 18:
+                        startContainerActivity(UpadteFragment.class.getCanonicalName());
                         break;
 
                 }

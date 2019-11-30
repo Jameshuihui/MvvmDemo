@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingTop="20dp"
+    android:paddingRight="15dp"
+    android:paddingBottom="20dp"
+    tools:ignore="MissingConstraints">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_dialog"
+        android:orientation="vertical"
+        android:paddingBottom="15dp"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/iv_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/update"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ll_update_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_update"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/iv_update">
+
+            <TextView
+                android:id="@+id/tv_version_til"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="最新版本："
+                android:textColor="@color/text_4d4d4d"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_version_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
+                android:textColor="@color/text_4d4d4d"
+                app:layout_constraintStart_toEndOf="@+id/tv_version_til" />
+
+
+            <TextView
+                android:id="@+id/tv_size_til"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="版本大小："
+                android:textColor="@color/text_4d4d4d"
+                app:layout_constraintTop_toBottomOf="@+id/tv_version_til" />
+
+            <TextView
+                android:id="@+id/tv_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_161616"
+                app:layout_constraintEnd_toStartOf="@id/tv_size_til" />
+
+            <TextView
+                android:id="@+id/tv_update_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fadeScrollbars="false"
+                android:lineSpacingExtra="3dp"
+                android:maxLines="5"
+                android:minLines="3"
+                android:paddingRight="10dp"
+                android:scrollbars="vertical"
+                android:text="@string/content"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_size_til" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <net.yhkj.mvvmdemo.view.HorizontalProgressBarWithNumber
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="15dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/ll_update_content"
+            app:progress_text_color="@color/app_color"
+            app:progress_text_size="13sp" />
+
+        <View
+            android:id="@+id/v2"
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            android:layout_marginTop="15dp"
+            android:background="#DCDEE0"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/ll_update_content" />
+
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/v2"
+            android:orientation="horizontal"
+            android:paddingTop="5dp"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/v2">
+
+
+            <Button
+                android:id="@+id/btu_off"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="取消"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/v3"
+                android:layout_width="0.5dip"
+                android:layout_height="match_parent"
+                android:background="#DCDEE0"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btu_on"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="立即更新"
+                android:textColor="@color/app_color"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
