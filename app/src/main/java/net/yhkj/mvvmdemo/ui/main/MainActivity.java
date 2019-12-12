@@ -23,6 +23,7 @@ import net.yhkj.mvvmdemo.dialog.WineUpdateDialog;
 import net.yhkj.mvvmdemo.minterface.OnParentTouchEvent;
 import net.yhkj.mvvmdemo.ui.addcart.AddCartFragment;
 import net.yhkj.mvvmdemo.ui.address_picker.AddressPickerFragment;
+import net.yhkj.mvvmdemo.ui.blurview.BlurViewFragment;
 import net.yhkj.mvvmdemo.ui.bottomsheet.BottomSheetFragment;
 import net.yhkj.mvvmdemo.ui.double_rv.DoubeRvFragment;
 import net.yhkj.mvvmdemo.ui.drawiamge.DrawImageFragment;
@@ -34,17 +35,23 @@ import net.yhkj.mvvmdemo.ui.money.MoneyFragment;
 import net.yhkj.mvvmdemo.ui.mulist.MuListFragment;
 import net.yhkj.mvvmdemo.ui.multiple_status.MultipleStatusFragment;
 import net.yhkj.mvvmdemo.ui.rxbus.RxBusFragment;
+import net.yhkj.mvvmdemo.ui.shopcart.ShopCartFragment;
 import net.yhkj.mvvmdemo.ui.suction.SuctionTopFragment;
 import net.yhkj.mvvmdemo.ui.sweep_code.SweepCodeActivity;
 import net.yhkj.mvvmdemo.ui.test.TestFragment;
 import net.yhkj.mvvmdemo.ui.update.UpadteFragment;
+import net.yhkj.mvvmdemo.utils.AdvertisingIdClient;
 import net.yhkj.mvvmdemo.utils.NotificationEnum;
 import net.yhkj.mvvmdemo.utils.NotifictionUtils;
 import net.yhkj.mvvmdemo.view.MyUpdateDialog;
 
+import java.util.concurrent.Executors;
+
 import io.reactivex.functions.Consumer;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import me.goldze.mvvmhabit.base.BaseActivity;
+import me.goldze.mvvmhabit.bus.RxSubscriptions;
+import me.goldze.mvvmhabit.utils.KLog;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 
@@ -72,6 +79,18 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         };
         binding.setAdapter(new BindingRecyclerViewAdapter());
         viewModel.initData();
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String adid = AdvertisingIdClient.getGoogleAdId(getApplicationContext());
+                    KLog.e("MainActivity", "adid:  " + adid);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         MyUpdateDialog dialog=new MyUpdateDialog(this);
         dialog.show();
 //        WineUpdateDialog dialog=new WineUpdateDialog(this);
@@ -165,6 +184,12 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                         break;
                     case 18:
                         startContainerActivity(UpadteFragment.class.getCanonicalName());
+                        break;
+                    case 19:
+                        startContainerActivity(ShopCartFragment.class.getCanonicalName());
+                        break;
+                    case 20:
+                        startContainerActivity(BlurViewFragment.class.getCanonicalName());
                         break;
 
                 }

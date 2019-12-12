@@ -63,4 +63,10 @@ dependencies {
     implementation 'com.github.xuexiangjys:XUpdate:1.1.1'
     implementation 'com.github.razerdp:BasePopup:2.2.1'
     implementation 'com.github.razerdp:BasePopup-compat-androidx:2.2.1'
+    implementation 'com.github.mmin18:realtimeblurview:1.2.1'
+    // 基础依赖包，必须要依赖
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+// fragment快速实现（可选）
+    implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
+
 }

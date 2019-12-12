@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:binding="http://schemas.android.com/apk/res-auto">
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -26,6 +27,7 @@
             android:ellipsize="end"
             android:lines="1"
             android:padding="10dp"
+            tools:text="茅台系列"
             android:text="@{viewModel.itemDatas.title}"
             android:textColor="#161616" />
     </LinearLayout>

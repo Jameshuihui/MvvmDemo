@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="BlurViewViewModel" />
+
+        <variable
+            name="adapter"
+            type="BindingRecyclerViewAdapter" />
+
+
+        <import type="me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="net.yhkj.mvvmdemo.ui.blurview.BlurViewViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            binding:layout_constraintBottom_toBottomOf="parent"
+            binding:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}"
+            binding:onRefreshCommand="@{viewModel.onRefreshCommand}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:overScrollMode="never"
+                binding:adapter="@{adapter}"
+                binding:itemBinding="@{viewModel.itemBinding}"
+                binding:items="@{viewModel.observableList}"
+                binding:layoutManager="@{LayoutManagers.linear()}"
+                android:paddingTop="?attr/actionBarSize"
+                tools:listitem="@layout/item_blurview" />
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:id="@+id/blurView"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:realtimeBlurRadius="10dp"
+            app:realtimeOverlayColor="#8fff" />
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/view_toolbar"
+            binding:toolbarViewModel="@{viewModel.toolbarViewModel}" />
+    </RelativeLayout>
+</layout>
